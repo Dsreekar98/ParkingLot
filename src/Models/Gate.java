@@ -10,8 +10,15 @@ public class Gate extends BaseModel {
 		private int floorNumber;
 		private int parkingLotId;
 		private GateStatus gateStatus;
+		private int gateNumber;
 		public String getOperator() {
 			return operator;
+		}
+		public int getGateNumber() {
+			return gateNumber;
+		}
+		public void setGateNumber(int gateNumber) {
+			this.gateNumber = gateNumber;
 		}
 		public void setOperator(String operator) {
 			this.operator = operator;

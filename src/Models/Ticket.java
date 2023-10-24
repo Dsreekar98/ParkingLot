@@ -10,6 +10,10 @@ public class Ticket extends BaseModel{
 	private ParkingSlot parkingSlot;
 	private Gate gate;
 	private TicketSatus ticketStatus;
+	private static int ticketCounter=1;
+	public Ticket() {
+		super(ticketCounter++);
+	}
 	public Vehicle getVehicle() {
 		return vehicle;
 	}
