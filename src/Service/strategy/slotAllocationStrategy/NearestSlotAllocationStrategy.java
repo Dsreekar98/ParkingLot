@@ -22,7 +22,7 @@ public class NearestSlotAllocationStrategy implements SlotAllocationStrategy {
 		int j = floorNumber + 1;
 		while (i >= 0 || j < parkingLot.getParkingFloors().size()) {
 			if (i >= 0) {
-				for (ParkingSlot slot : parkingLot.getParkingFloors().get(floorNumber).getParkingSlots()) {
+				for (ParkingSlot slot : parkingLot.getParkingFloors().get(i).getParkingSlots()) {
 					if (slot.getSupportedVehicleType().equals(vehicleType)
 							&& slot.getParkingSlotStatus().equals(ParkingSlotStatus.AVAILABLE)) {
 						return slot;
@@ -30,14 +30,14 @@ public class NearestSlotAllocationStrategy implements SlotAllocationStrategy {
 				}
 			}
 			if (j < parkingLot.getParkingFloors().size()) {
-				for (ParkingSlot slot : parkingLot.getParkingFloors().get(floorNumber).getParkingSlots()) {
+				for (ParkingSlot slot : parkingLot.getParkingFloors().get(j).getParkingSlots()) {
 					if (slot.getSupportedVehicleType().equals(vehicleType)
 							&& slot.getParkingSlotStatus().equals(ParkingSlotStatus.AVAILABLE)) {
 						return slot;
 					}
 				}
 			}
-			i++;
+			j++;
 			i--;
 		}
 		throw new NoParkingSlotAvailableException("No empty parking slot available");
